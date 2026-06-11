@@ -1,0 +1,1405 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="color-scheme" content="light only">
+    <meta name="supported-color-schemes" content="light">
+    <title>Саша Дмитриева | Вожатая граблей</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;700&family=Unbounded:wght@600;800;900&display=swap" rel="stylesheet">
+
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        brandBg: '#D6DF75',
+                        brandSection: '#CBD760',
+                        brandPrimary: '#C7200A',
+                        brandPrimaryHover: '#A91A08',
+                        brandSecondary: '#364321',
+                        brandSecondaryHover: '#252F17',
+                        brandAccent: '#A95531',
+                        brandCard: '#DCE683',
+                        brandTitle: '#364321',
+                        brandText: '#A95531',
+                        brandBorder: '#B8C35C',
+                        brandLilac: '#C7200A',
+                    },
+                    fontFamily: {
+                        sans: ['Montserrat', 'sans-serif'],
+                        display: ['Unbounded', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
+
+    <style>
+        :root {
+            color-scheme: light only;
+
+            --bg: #D6DF75;
+            --section: #CBD760;
+            --card: #DCE683;
+            --card-light: #EEF39D;
+            --title: #364321;
+            --text: #A95531;
+            --red: #C7200A;
+            --red-hover: #A91A08;
+            --border: #B8C35C;
+            --white-soft: #F0F49F;
+        }
+
+        * {
+            box-sizing: border-box;
+        }
+
+        html {
+            color-scheme: light only;
+            scroll-behavior: smooth;
+            overflow-x: hidden;
+            background: var(--bg) !important;
+        }
+
+        body {
+            background-color: var(--bg) !important;
+            color: var(--text) !important;
+            overflow-x: hidden;
+            -webkit-text-size-adjust: 100%;
+            width: 100%;
+            min-width: 320px;
+        }
+
+        img {
+            max-width: 100%;
+            height: auto;
+            display: block;
+        }
+
+        @media (prefers-color-scheme: dark) {
+            html,
+            body {
+                background-color: var(--bg) !important;
+                color: var(--text) !important;
+            }
+
+            input,
+            textarea,
+            select,
+            button {
+                color-scheme: light;
+            }
+        }
+
+        .text-title {
+            color: var(--title);
+        }
+
+        .text-brandTitle,
+        .text-title,
+        h1,
+        h2,
+        h3,
+        h4,
+        h5,
+        h6 {
+            color: var(--title) !important;
+        }
+
+        .text-brandText {
+            color: var(--text) !important;
+        }
+
+        .text-brandPrimary {
+            color: var(--red) !important;
+        }
+
+        .text-brandSecondary {
+            color: var(--title) !important;
+        }
+
+        .bg-brandBg {
+            background-color: var(--bg) !important;
+        }
+
+        .bg-brandSection {
+            background-color: var(--section) !important;
+        }
+
+        .bg-white {
+            background-color: var(--bg) !important;
+        }
+
+        header {
+            background: rgba(214, 223, 117, 0.92) !important;
+            border-bottom: 1px solid var(--border) !important;
+            backdrop-filter: blur(16px);
+        }
+
+        .site-brand {
+            color: var(--title) !important;
+            line-height: 1.05;
+        }
+
+        .brand-subtitle {
+            display: block;
+            color: var(--red) !important;
+            font-size: 18px !important;
+            line-height: 1.15 !important;
+            margin-top: 6px !important;
+            margin-left: 0 !important;
+            letter-spacing: 0.08em !important;
+            font-weight: 800 !important;
+            text-transform: uppercase;
+        }
+
+        header .font-display {
+            color: var(--title) !important;
+        }
+
+        header span {
+            color: var(--red) !important;
+        }
+
+        .gradient-hero {
+            background: var(--bg) !important;
+        }
+
+        .gradient-btn {
+            background: var(--red) !important;
+            color: #FFFFFF !important;
+            transition: opacity 0.3s ease, transform 0.3s ease, background 0.3s ease;
+        }
+
+        .gradient-btn:hover {
+            background: var(--red-hover) !important;
+            opacity: 1;
+            transform: translateY(-2px);
+        }
+
+        .btn-primary {
+            background-color: var(--red) !important;
+            color: #FFFFFF !important;
+            transition: all 0.3s ease;
+        }
+
+        .btn-primary:hover {
+            background-color: var(--red-hover) !important;
+            transform: translateY(-2px);
+            box-shadow: 0 10px 20px rgba(199, 32, 10, 0.25);
+        }
+
+        .btn-secondary {
+            background-color: var(--red) !important;
+            color: #FFFFFF !important;
+            transition: all 0.3s ease;
+        }
+
+        .btn-secondary:hover {
+            background-color: var(--red-hover) !important;
+            transform: translateY(-2px);
+        }
+
+        .btn-outline {
+            background-color: transparent !important;
+            border: 2px solid var(--red) !important;
+            color: var(--red) !important;
+            transition: all 0.3s ease;
+        }
+
+        .btn-outline:hover {
+            background-color: var(--red) !important;
+            border-color: var(--red) !important;
+            color: #FFFFFF !important;
+            transform: translateY(-2px);
+        }
+
+        .card-custom {
+            background: var(--card) !important;
+            border: 1px solid var(--border) !important;
+            border-radius: 2rem;
+            transition: all 0.3s ease;
+            overflow: hidden;
+            color: var(--text) !important;
+        }
+
+        .card-custom:hover {
+            border-color: var(--red) !important;
+            box-shadow: 0 15px 30px rgba(54, 67, 33, 0.12);
+            transform: translateY(-3px);
+        }
+
+        .badge-card {
+            background: rgba(220, 230, 131, 0.92) !important;
+            border: 1px solid var(--border) !important;
+            border-radius: 1.5rem;
+            box-shadow: 0 10px 30px rgba(54, 67, 33, 0.1);
+        }
+
+        .achievement-image-card {
+            border-radius: 2rem;
+            border: 1px solid var(--border) !important;
+            box-shadow: 0 15px 30px rgba(54, 67, 33, 0.1);
+            background: var(--card) !important;
+            padding: 1rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 430px;
+            overflow: hidden;
+        }
+
+        .achievement-image-card img {
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+            display: block;
+        }
+
+        section {
+            background-color: var(--bg) !important;
+        }
+
+        section:nth-of-type(even) {
+            background-color: var(--section) !important;
+        }
+
+        section.border-y,
+        section.border-t,
+        section.border-b,
+        footer {
+            border-color: var(--border) !important;
+        }
+
+        #form {
+            background: var(--section) !important;
+        }
+
+        #form > .container > div {
+            background: var(--card) !important;
+            border: 1px solid var(--border) !important;
+            box-shadow: 0 20px 60px rgba(54, 67, 33, 0.18) !important;
+        }
+
+        input,
+        textarea,
+        select {
+            background: var(--white-soft) !important;
+            border: 1px solid var(--border) !important;
+            color: var(--title) !important;
+        }
+
+        input::placeholder,
+        textarea::placeholder {
+            color: rgba(54, 67, 33, 0.65) !important;
+        }
+
+        input:focus,
+        textarea:focus,
+        select:focus {
+            border-color: var(--red) !important;
+            box-shadow: 0 0 0 4px rgba(199, 32, 10, 0.12) !important;
+            outline: none !important;
+        }
+
+        footer {
+            background: var(--bg) !important;
+        }
+
+        footer a {
+            color: var(--title) !important;
+        }
+
+        footer a:hover {
+            color: var(--red) !important;
+        }
+
+        .footer-brand-title {
+            font-size: 34px !important;
+            line-height: 1.05 !important;
+        }
+
+        .border-brandBorder {
+            border-color: var(--border) !important;
+        }
+
+        .border-l-brandAccent,
+        .border-l-brandPrimary {
+            border-left-color: var(--red) !important;
+        }
+
+        .bg-brandSecondary\/30,
+        .bg-brandPrimary\/30,
+        .bg-brandAccent\/30 {
+            background-color: rgba(199, 32, 10, 0.13) !important;
+        }
+
+        .shadow-xl,
+        .shadow-2xl,
+        .shadow-lg {
+            box-shadow: 0 18px 40px rgba(54, 67, 33, 0.18) !important;
+        }
+
+        .drop-shadow-md {
+            filter: none !important;
+        }
+
+        h1 span.text-white {
+            color: var(--red) !important;
+        }
+
+        .hero-buttons a:first-child,
+        .form-submit {
+            background: var(--red) !important;
+            color: #FFFFFF !important;
+        }
+
+        .hero-buttons a:first-child:hover,
+        .form-submit:hover {
+            background: var(--red-hover) !important;
+        }
+
+        .bg-white\/50 {
+            background-color: rgba(238, 243, 157, 0.65) !important;
+        }
+
+        .border-white {
+            border-color: var(--border) !important;
+        }
+
+        .border-8.border-white {
+            border-color: var(--card-light) !important;
+        }
+
+        .bg-brandSection {
+            background-color: var(--section) !important;
+        }
+
+        .absolute.-bottom-10.-right-10 {
+            background-color: var(--red) !important;
+            opacity: 0.35 !important;
+        }
+
+        ::selection {
+            background: var(--red);
+            color: #FFFFFF;
+        }
+
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+
+        ::-webkit-scrollbar-track {
+            background: var(--bg);
+        }
+
+        ::-webkit-scrollbar-thumb {
+            background: var(--red);
+            border-radius: 10px;
+        }
+
+
+        .policy-consent {
+            display: grid;
+            grid-template-columns: 18px 1fr;
+            gap: 12px;
+            align-items: start;
+            padding: 14px 16px;
+            border: 1px solid var(--border);
+            border-radius: 16px;
+            background: rgba(238, 243, 157, 0.55);
+            color: var(--title);
+            font-size: 12px;
+            line-height: 1.45;
+        }
+
+        .policy-consent input {
+            width: 18px;
+            height: 18px;
+            margin-top: 1px;
+            accent-color: var(--red);
+            cursor: pointer;
+            flex-shrink: 0;
+        }
+
+        .policy-consent label {
+            cursor: pointer;
+        }
+
+        .policy-link-button {
+            display: inline;
+            padding: 0;
+            border: 0;
+            background: transparent;
+            color: var(--red);
+            font-weight: 800;
+            text-decoration: underline;
+            cursor: pointer;
+            text-align: left;
+        }
+
+        .policy-link-button:hover {
+            color: var(--red-hover);
+        }
+
+        .policy-modal {
+            position: fixed;
+            inset: 0;
+            z-index: 100;
+            display: none;
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
+            background: rgba(54, 67, 33, 0.55);
+            backdrop-filter: blur(10px);
+        }
+
+        .policy-modal.is-open {
+            display: flex;
+        }
+
+        .policy-modal-card {
+            width: min(960px, 100%);
+            max-height: 88vh;
+            background: var(--card-light);
+            border: 1px solid var(--border);
+            border-radius: 28px;
+            box-shadow: 0 24px 70px rgba(54, 67, 33, 0.25);
+            overflow: hidden;
+        }
+
+        .policy-modal-head {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 16px;
+            padding: 20px 24px;
+            border-bottom: 1px solid var(--border);
+            background: var(--card);
+        }
+
+        .policy-modal-title {
+            font-family: 'Unbounded', sans-serif;
+            color: var(--title);
+            font-weight: 900;
+            font-size: 18px;
+            line-height: 1.2;
+        }
+
+        .policy-modal-close {
+            width: 42px;
+            height: 42px;
+            border-radius: 999px;
+            border: 1px solid var(--red);
+            background: transparent;
+            color: var(--red);
+            font-size: 26px;
+            line-height: 1;
+            cursor: pointer;
+            flex-shrink: 0;
+        }
+
+        .policy-modal-close:hover {
+            background: var(--red);
+            color: #FFFFFF;
+        }
+
+        .policy-modal-body {
+            max-height: calc(88vh - 84px);
+            overflow: auto;
+            padding: 24px;
+        }
+
+        .policy-full-text {
+            white-space: pre-wrap;
+            word-break: break-word;
+            font-family: "Times New Roman", serif;
+            font-size: 15px;
+            line-height: 1.45;
+            color: #000000;
+            margin: 0;
+        }
+
+        @media (max-width: 1279px) and (min-width: 1024px) {
+            .achievement-image-card {
+                height: 360px;
+            }
+        }
+
+        @media (max-width: 767px) {
+            .container {
+                padding-left: 16px !important;
+                padding-right: 16px !important;
+            }
+
+            header .container {
+                flex-direction: row !important;
+                justify-content: space-between !important;
+                align-items: center !important;
+                padding-top: 10px !important;
+                padding-bottom: 10px !important;
+                gap: 8px !important;
+            }
+
+            .site-brand {
+                font-size: 13px !important;
+                line-height: 1.1 !important;
+                text-align: left !important;
+                max-width: 185px !important;
+                flex-shrink: 1 !important;
+            }
+
+            .brand-subtitle {
+                display: block !important;
+                font-size: 12px !important;
+                line-height: 1.1 !important;
+                margin-top: 5px !important;
+                margin-left: 0 !important;
+                letter-spacing: 0.04em !important;
+                white-space: nowrap !important;
+                font-weight: 900 !important;
+            }
+
+            .header-cta {
+                width: auto !important;
+                font-size: 9px !important;
+                padding: 10px 12px !important;
+                white-space: nowrap !important;
+                display: inline-flex !important;
+                align-items: center !important;
+                justify-content: center !important;
+                margin: 0 !important;
+                line-height: 1 !important;
+                border-radius: 9999px !important;
+                flex-shrink: 0 !important;
+            }
+
+            h1 {
+                font-size: 28px !important;
+                line-height: 1.2 !important;
+                text-align: center;
+                margin-bottom: 20px !important;
+            }
+
+            h1 br {
+                display: none;
+            }
+
+            .gradient-hero {
+                padding-top: 112px !important;
+                padding-bottom: 40px !important;
+                text-align: center;
+            }
+
+            .hero-buttons {
+                flex-direction: column !important;
+                gap: 12px !important;
+            }
+
+            .hero-buttons a {
+                width: 100% !important;
+                text-align: center;
+                padding: 16px !important;
+                font-size: 16px !important;
+            }
+
+            .mobile-photo-wrap {
+                margin-top: 30px !important;
+            }
+
+            .py-24 {
+                padding-top: 50px !important;
+                padding-bottom: 50px !important;
+            }
+
+            h2 {
+                font-size: 26px !important;
+                text-align: center;
+            }
+
+            .grid-cols-1.md\:grid-cols-2,
+            .grid-cols-1.lg\:grid-cols-2 {
+                display: flex !important;
+                flex-direction: column !important;
+                gap: 16px !important;
+            }
+
+            .card-custom {
+                padding: 20px !important;
+                text-align: center;
+            }
+
+            .achievement-image-card {
+                height: 300px !important;
+            }
+
+            .footer-brand-title {
+                font-size: 30px !important;
+            }
+
+            footer .flex-col.md\:flex-row {
+                flex-direction: column !important;
+                text-align: center;
+            }
+
+            .pt-8.border-t.grid {
+                grid-template-columns: 1fr !important;
+                text-align: center;
+                gap: 12px !important;
+            }
+
+            .policy-modal {
+                padding: 12px !important;
+                align-items: flex-start !important;
+                padding-top: 76px !important;
+            }
+
+            .policy-modal-card {
+                width: calc(100vw - 24px) !important;
+                max-height: calc(100dvh - 92px) !important;
+                border-radius: 26px !important;
+            }
+
+            .policy-modal-head {
+                position: relative !important;
+                padding: 20px 62px 20px 24px !important;
+                align-items: flex-start !important;
+            }
+
+            .policy-modal-title {
+                font-size: 19px !important;
+                line-height: 1.22 !important;
+                max-width: 100% !important;
+            }
+
+            .policy-modal-close {
+                position: absolute !important;
+                top: 16px !important;
+                right: 16px !important;
+                width: 38px !important;
+                height: 38px !important;
+                display: flex !important;
+                align-items: center !important;
+                justify-content: center !important;
+                font-size: 28px !important;
+                line-height: 1 !important;
+                padding: 0 !important;
+                z-index: 2 !important;
+            }
+
+            .policy-modal-body {
+                max-height: calc(100dvh - 230px) !important;
+                padding: 22px 24px !important;
+            }
+        }
+
+        @media (max-width: 380px) {
+            .site-brand {
+                font-size: 11px !important;
+                max-width: 152px !important;
+            }
+
+            .brand-subtitle {
+                font-size: 10px !important;
+            }
+
+            .header-cta {
+                font-size: 8px !important;
+                padding: 9px 9px !important;
+            }
+
+            h1 {
+                font-size: 24px !important;
+            }
+        }
+    </style>
+</head>
+
+<body class="font-sans antialiased bg-brandBg text-brandText">
+
+    <header class="fixed w-full z-50 bg-white/70 backdrop-blur-lg border-b border-brandBorder">
+        <div class="container mx-auto px-6 py-4 flex flex-col sm:flex-row justify-between items-center gap-4">
+            <div class="site-brand font-display font-extrabold text-brandTitle tracking-tighter text-center sm:text-left text-xl">
+                САША ДМИТРИЕВА
+                <span class="brand-subtitle text-brandPrimary">#вожатая_граблей</span>
+            </div>
+
+            <a href="https://t.me/vozhatayagrabley" target="_blank" rel="noopener noreferrer" class="header-cta btn-primary px-6 py-2 rounded-full text-xs font-bold uppercase tracking-widest">Узнать подробности</a>
+        </div>
+    </header>
+
+    <section class="pt-32 pb-20 md:pt-48 md:pb-32 gradient-hero relative overflow-hidden">
+        <div class="container mx-auto px-6 relative z-10">
+            <div class="flex flex-col md:flex-row items-center gap-16">
+                <div class="md:w-3/5" data-aos="fade-right">
+                    <h1 class="font-display text-4xl md:text-6xl lg:text-7xl font-black text-brandTitle mb-8 leading-[1.1]">
+                        Помогаю людям <br><span class="text-white drop-shadow-md">перестать бояться</span> <br>быть собой
+                    </h1>
+
+                    <p class="text-xl md:text-2xl text-brandTitle/80 font-medium mb-10 max-w-xl leading-relaxed">
+                        Из деревни в Москву, из найма в свободу, из страха в смелость. Разбираемся с твоим внутренним киселем.
+                    </p>
+
+                    <div class="hero-buttons flex flex-wrap gap-4">
+                        <a href="#form" class="gradient-btn px-10 py-5 rounded-2xl text-white font-bold text-lg uppercase tracking-tight shadow-xl">Поговорить</a>
+
+                        <a href="https://t.me/yaiznaroda" target="_blank" rel="noopener noreferrer" class="btn-outline px-10 py-5 rounded-2xl font-bold text-lg uppercase tracking-tight">Telegram</a>
+
+                        <a href="https://golnk.ru/Z1gRG" target="_blank" rel="noopener noreferrer" class="btn-outline px-10 py-5 rounded-2xl font-bold text-lg uppercase tracking-tight">MAX</a>
+                    </div>
+                </div>
+
+                <div class="md:w-2/5 w-full mobile-photo-wrap" data-aos="zoom-in">
+                    <div class="w-full aspect-[4/5] relative">
+                        <div class="w-full h-full rounded-[3rem] bg-white border-8 border-white overflow-hidden shadow-2xl rotate-3 relative">
+                            <img src="sasha.jpg" alt="Саша Дмитриева" class="w-full h-full object-cover">
+
+                            <div class="absolute inset-0 flex items-center justify-center text-center p-8 bg-brandSection -z-10">
+                                <p class="text-xs uppercase font-bold text-brandTitle italic">Здесь будет фото</p>
+                            </div>
+                        </div>
+
+                        <div class="absolute -bottom-10 -right-10 w-40 h-40 bg-brandAccent rounded-full opacity-50 blur-3xl -z-10"></div>
+                    </div>
+
+                    <div class="mt-6 grid grid-cols-1 sm:grid-cols-2 gap-4">
+                        <div class="badge-card p-5 text-center">
+                            <div class="text-xs uppercase tracking-[0.25em] text-brandPrimary font-bold mb-2">Мои заслуги</div>
+                            <div class="text-brandTitle font-bold text-base">Более 10 лет опыта</div>
+                        </div>
+
+                        <div class="badge-card p-5 text-center">
+                            <div class="text-xs uppercase tracking-[0.25em] text-brandPrimary font-bold mb-2">Результат</div>
+                            <div class="text-brandTitle font-bold text-base">Качественная жизнь</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="py-24 bg-brandBg">
+        <div class="container mx-auto px-6">
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+                <div data-aos="fade-up">
+                    <h2 class="font-display text-3xl md:text-5xl font-bold text-brandTitle mb-8 leading-tight italic">
+                        Ты устал быть <br><span class="text-brandPrimary">«удобным»?</span>
+                    </h2>
+
+                    <p class="text-xl text-brandText mb-8 italic">
+                        До 34 лет я была самой «правильной» дурой на свете. Терпела, молчала, блокировала себя. Пока не поняла: проблема не в начальниках, а в моих блоках.
+                    </p>
+                </div>
+
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                    <div class="card-custom p-8" data-aos="fade-left" data-aos-delay="100">
+                        <p class="font-bold text-brandTitle mb-2 uppercase text-sm">Работа</p>
+                        <p class="text-brandText">Терпишь, потому что страшно уволиться? Тебе садятся на шею.</p>
+                    </div>
+
+                    <div class="card-custom p-8" data-aos="fade-left" data-aos-delay="200">
+                        <p class="font-bold text-brandTitle mb-2 uppercase text-sm">Отношения</p>
+                        <p class="text-brandText">Ходишь на свидания не с «теми», лишь бы не одиночество?</p>
+                    </div>
+
+                    <div class="card-custom p-8" data-aos="fade-left" data-aos-delay="300">
+                        <p class="font-bold text-brandTitle mb-2 uppercase text-sm">Эмоции</p>
+                        <p class="text-brandText">Прячешь чувства, потому что злиться «неприлично»?</p>
+                    </div>
+
+                    <div class="card-custom p-8" data-aos="fade-left" data-aos-delay="400">
+                        <p class="font-bold text-brandTitle mb-2 uppercase text-sm">Обещание</p>
+                        <p class="text-brandPrimary font-bold italic">Я научу тебя смелости быть собой — без масок и стыда.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="py-24 bg-brandSection">
+        <div class="container mx-auto px-6">
+            <div class="max-w-5xl mx-auto">
+                <h2 class="font-display text-4xl font-black text-brandTitle mb-12 text-center" data-aos="fade-down">Путь из деревни в свободу</h2>
+
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-12 text-lg leading-relaxed text-brandTitle/80">
+                    <div class="space-y-6" data-aos="fade-right">
+                        <p>В 13 лет я вставала в 5:30, чтобы ехать в городскую школу с грязной головой, дома не было ванны. Выучила английский с нуля до свободного и стала лучшей на потоке.</p>
+                        <p>Доросла до HR-директора, увольняла, проходила кризисы. В декрете нажиралась с дворовыми, гуляя с коляской, потому что внутри было пусто.</p>
+                    </div>
+
+                    <div class="space-y-6" data-aos="fade-left">
+                        <p class="bg-white/50 p-6 rounded-3xl border border-white">
+                            А потом я пошла в терапию. И всё пошло по-другому. <br><br>
+                            Сегодня я живу честно. Не идеально, но честно. И это приносит результат. Я не играю в «правильного эксперта».
+                        </p>
+                    </div>
+                </div>
+
+                <div class="mt-12 grid grid-cols-1 md:grid-cols-2 gap-8" data-aos="fade-up">
+                    <div class="card-custom p-4">
+                        <img src="photo-1.png" alt="Фото Саши Дмитриевой 1" class="w-full aspect-square object-cover rounded-[1.5rem]">
+                    </div>
+
+                    <div class="card-custom p-4">
+                        <img src="photo-2.png" alt="Фото Саши Дмитриевой 2" class="w-full aspect-square object-cover rounded-[1.5rem]">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="py-24 bg-brandBg">
+        <div class="container mx-auto px-6">
+            <h2 class="font-display text-3xl md:text-5xl font-bold text-brandTitle text-center mb-16" data-aos="zoom-in">Три стоп-крана</h2>
+
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <div class="card-custom p-10 text-center" data-aos="fade-up" data-aos-delay="100">
+                    <div class="w-16 h-16 bg-brandSecondary/30 rounded-full flex items-center justify-center mx-auto mb-6 text-2xl">🎭</div>
+                    <h3 class="text-xl font-bold text-brandTitle mb-4 uppercase">Страх естественности</h3>
+                    <p class="text-brandText text-sm">Ты подавляешь свой голос и энергию. Люди видят не тебя, а твою удобную маску.</p>
+                </div>
+
+                <div class="card-custom p-10 text-center" data-aos="fade-up" data-aos-delay="200">
+                    <div class="w-16 h-16 bg-brandPrimary/30 rounded-full flex items-center justify-center mx-auto mb-6 text-2xl">😳</div>
+                    <h3 class="text-xl font-bold text-brandTitle mb-4 uppercase">Стыд</h3>
+                    <p class="text-brandText text-sm">Стыдно признаться в желаниях или попросить повышения. Этот стыд сковывает до паралича.</p>
+                </div>
+
+                <div class="card-custom p-10 text-center" data-aos="fade-up" data-aos-delay="300">
+                    <div class="w-16 h-16 bg-brandAccent/30 rounded-full flex items-center justify-center mx-auto mb-6 text-2xl">👤</div>
+                    <h3 class="text-xl font-bold text-brandTitle mb-4 uppercase">Отвержение</h3>
+                    <p class="text-brandText text-sm">Боишься одиночества, поэтому соглашаешься на меньшее: нелюбимую работу и токсичных людей.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="py-24 bg-white border-y border-brandBorder">
+        <div class="container mx-auto px-6 max-w-4xl text-center">
+            <h2 class="font-display text-3xl md:text-4xl font-bold text-brandTitle mb-12" data-aos="fade-up">Как мы будем работать</h2>
+
+            <div class="space-y-8 text-left mb-16">
+                <div class="flex gap-6 items-start" data-aos="fade-right">
+                    <span class="text-brandPrimary text-3xl font-bold italic">01.</span>
+                    <p class="text-xl text-brandTitle">Я не даю советов. Я задаю вопросы, которые вытаскивают твои блоки.</p>
+                </div>
+
+                <div class="flex gap-6 items-start" data-aos="fade-right" data-aos-delay="100">
+                    <span class="text-brandPrimary text-3xl font-bold italic">02.</span>
+                    <p class="text-xl text-brandTitle">Бесплатная диагностика 30-40 мин, поймем твой главный страх.</p>
+                </div>
+
+                <div class="flex gap-6 items-start" data-aos="fade-right" data-aos-delay="200">
+                    <span class="text-brandPrimary text-3xl font-bold italic">03.</span>
+                    <p class="text-xl text-brandTitle">Честный разговор. Иногда с матом, иногда с иронией, но всегда по делу.</p>
+                </div>
+            </div>
+
+            <a href="#form" class="btn-secondary px-12 py-5 rounded-2xl font-bold text-xl uppercase tracking-widest inline-block shadow-lg">Записаться на созвон</a>
+        </div>
+    </section>
+
+    <section class="py-24 bg-brandBg">
+        <div class="container mx-auto px-6">
+            <h2 class="font-display text-3xl font-bold text-brandTitle mb-16 text-center" data-aos="fade-up">Результаты</h2>
+
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <div class="card-custom p-8 italic border-l-8 border-l-brandAccent" data-aos="fade-right" data-aos-delay="100">
+                    «Топ-менеджер ушёл с нелюбимой работы и открыл своё дело. Наконец-то дышит».
+                </div>
+
+                <div class="card-custom p-8 italic border-l-8 border-l-brandPrimary" data-aos="fade-up" data-aos-delay="200">
+                    «Женщина 45 лет впервые сказала мужу „нет“ и почувствовала его уважение».
+                </div>
+
+                <div class="card-custom p-8 italic border-l-8 border-l-brandAccent" data-aos="fade-left" data-aos-delay="300">
+                    «Женщина в 43 года впервые вышла замуж».
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="py-24 bg-white border-t border-b border-brandBorder">
+        <div class="container mx-auto px-6 max-w-6xl">
+            <div class="text-center mb-12" data-aos="fade-up">
+                <p class="text-sm uppercase tracking-[0.4em] text-brandPrimary font-bold mb-4">Мои заслуги</p>
+
+                <h2 class="font-display text-3xl md:text-5xl font-black text-brandTitle mb-6 leading-tight">
+                    Опыт, который помогает видеть глубже и говорить по делу
+                </h2>
+
+                <p class="text-brandText text-lg max-w-3xl mx-auto">
+                    Прошла путь от внутренних запретов и страха к честной жизни без масок. Работаю через реальные кейсы, разбор блоков и понятные шаги к изменениям.
+                </p>
+            </div>
+
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8" data-aos="fade-up">
+                <div class="achievement-image-card">
+                    <img src="zasluga-1.png" alt="Сертификат 1">
+                </div>
+
+                <div class="achievement-image-card">
+                    <img src="zasluga-2.png" alt="Сертификат 2">
+                </div>
+
+                <div class="achievement-image-card">
+                    <img src="zasluga-3.png" alt="Сертификат 3">
+                </div>
+
+                <div class="achievement-image-card">
+                    <img src="zasluga-4.png" alt="Сертификат 4">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="form" class="py-24 bg-brandSection relative overflow-hidden">
+        <div class="container mx-auto px-6 max-w-4xl relative z-10">
+            <div class="bg-white p-10 md:p-20 rounded-[3rem] shadow-2xl border border-brandBorder" data-aos="zoom-in">
+                <h2 class="font-display text-4xl font-black text-brandTitle mb-6 text-center italic uppercase tracking-tighter">Пора выходить <br>из тени</h2>
+
+                <p class="text-center text-brandText text-lg mb-10">
+                    Запишись на бесплатную диагностику. <br>Возьму только 10 человек в месяц.
+                </p>
+
+                <form id="leadForm" class="space-y-4 max-w-md mx-auto">
+                    <input name="name" type="text" placeholder="Твое имя" class="w-full px-6 py-4 rounded-xl border border-brandBorder focus:border-brandPrimary focus:outline-none bg-brandBg transition-all" required>
+
+                    <input name="contact" type="text" placeholder="Telegram / Телефон" class="w-full px-6 py-4 rounded-xl border border-brandBorder focus:border-brandPrimary focus:outline-none bg-brandBg transition-all" required>
+
+
+                    <div class="policy-consent">
+                        <input id="personalDataConsent" name="personalDataConsent" type="checkbox" required>
+
+                        <div>
+                            <label for="personalDataConsent">
+                                Я даю согласие на обработку персональных данных на условиях
+                            </label>
+
+                            <button id="openPolicyModal" type="button" class="policy-link-button">Политики конфиденциальности</button>
+                        </div>
+                    </div>
+
+                    <button type="submit" class="form-submit w-full gradient-btn py-5 rounded-xl text-white font-display font-bold text-xl uppercase tracking-widest shadow-xl mt-4">ПОГОВОРИТЬ</button>
+
+                    <p id="formMessage" class="text-center text-sm text-brandTitle hidden mt-4"></p>
+                </form>
+
+                <div class="mt-10 flex flex-col sm:flex-row gap-4 justify-center">
+                    <a href="https://t.me/yaiznaroda" target="_blank" rel="noopener noreferrer" class="btn-outline px-8 py-4 rounded-2xl font-bold text-sm uppercase tracking-widest text-center">Написать в Telegram</a>
+
+                    <a href="https://golnk.ru/Z1gRG" target="_blank" rel="noopener noreferrer" class="btn-outline px-8 py-4 rounded-2xl font-bold text-sm uppercase tracking-widest text-center">Написать в MAX</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+    <div id="policyModal" class="policy-modal" aria-hidden="true">
+        <div class="policy-modal-card" role="dialog" aria-modal="true" aria-labelledby="policyModalTitle">
+            <div class="policy-modal-head">
+                <div id="policyModalTitle" class="policy-modal-title">Политика конфиденциальности и обработки персональных данных</div>
+                <button id="closePolicyModal" type="button" class="policy-modal-close" aria-label="Закрыть">×</button>
+            </div>
+
+            <div class="policy-modal-body">
+                <pre class="policy-full-text">Политика конфиденциальности и обработки персональных данных
+
+    1. Общие положения, стороны, цель документа
+
+        1.1. Настоящая Политика конфиденциальности и обработки персональных данных (далее – «Политика») определяет порядок и условия обработки индивидуальным предпринимателем «ДМИТРИЕВА АЛЕКСАНДРА СЕРГЕЕВНА», действующим по законодательству России (далее - «Оператор» либо «Мы»), информации о физическом лице,  которая может быть получена Оператором от этого физического лица либо от его законного представителя (далее – «Пользователь», «Субъект персональных данных» либо «Вы»), при возникновении следующих отношений с Субъектом персональных данных:
+
+а) при использовании функций сайта vozhatauagrabley.ru, включая все его домены, поддомены и страницы, их содержимое, а также интернет-сервисы и программное обеспечение, предлагаемые Оператором к использованию на этом сайте (далее вместе – «Сайт»);
+
+б) при осуществлении Оператором прав и обязанностей, установленных соглашениями/договорами, заключенными между Оператором и Пользователем;
+
+в) при обработке обращений, жалоб, запросов, сообщений, направляемых Оператором и Пользователем друг другу.
+
+        1.2.  Целью и назначением Политики является обеспечение надлежащего правового режима персональных данных. Политика не может содержать положения, ограничивающие права и свободы субъекта персональных данных, устанавливающие случаи обработки персональных данных несовершеннолетних, если иное не предусмотрено законодательством Российской Федерации, а также положения, допускающие в качестве условия заключения договора/выражения согласия бездействие субъекта персональных данных.
+
+    2. Правовое основание обработки персональных данных
+
+        2.1. Правовыми основаниями обработки персональных данных являются:
+
+а) согласие на обработку персональных данных, выраженное способом, установленным законом и настоящей Политикой;
+б) соглашения, заключаемые между Оператором и Пользователем;
+в) локальные нормативные акты Оператора в области персональных данных.
+
+        2.2. Субъект персональных данных принимает решение о предоставлении его персональных данных и дает согласие на их обработку свободно, своей волей и в своем интересе. Бездействие субъекта персональных данных не может пониматься как согласие. Согласие на обработку персональных данных должно быть конкретным, предметным, информированным, сознательным и однозначным. Согласие с условиями Политики может быть выражено субъектом персональных данных через совершение любого из следующих действий:
+
+а) заключение с Оператором договора, такого как, например, договор-оферта об оказании платных образовательных услуг; при условии, что Пользователю в каждом месте сбора персональных данных предоставлена возможность ознакомиться с полным текстом настоящей Политики;
+
+либо
+
+б) простановка символа в чек-боксе (в поле для ввода) на Сайте рядом с текстом вида: «Я даю согласие на обработку персональных данных на условиях Политики конфиденциальности», при условии, что Пользователю в каждом месте сбора персональных данных предоставлена возможность ознакомиться с полным текстом настоящей Политики.
+
+    3. Правила обработки персональных данных
+
+        3.1. Цель обработки персональных данных, категории и перечень обрабатываемых персональных данных, категории субъектов, персональные данные которых обрабатываются, способы и сроки обработки и хранения, порядок уничтожения персональных данных при достижении целей их обработки или при наступлении иных законных оснований
+
+
+            3.1.1. Цель: аутентификация субъекта персональных данных для заключения договора оказания платных консультационных услуг.
+
+Категории и перечень обрабатываемых данных: фамилия, имя, телефон, электронная почта.
+
+Категории субъектов, персональные данные которых обрабатываются: субъекты персональных данных - Пользователи Сайта.
+
+Способы обработки: сбор, запись, систематизация, накопление, хранение, уточнение (обновление, изменение), извлечение, использование, обезличивание, передача (доступ, предоставление), блокирование, удаление, уничтожение персональных данных.
+
+Срок обработки и хранения: до получения от субъекта персональных данных требования о прекращении обработки/отзыва согласия либо 10 (десять) лет.
+
+Порядок уничтожения персональных данных при достижении цели их обработки или при наступлении иных законных оснований: лицо, ответственное за обработку персональных данных, производит стирание данных методом перезаписи (замена всех единиц хранения информации на «0») с составлением акта об уничтожении персональных данных.
+
+            3.1.2. Цель: связь с Пользователем, направление Пользователю сообщений, уведомлений, запросов, ответов, документов, сообщений рекламного или информационного характера. 
+
+Категории и перечень обрабатываемых данных: имя, фамилия, телефон, электронная почта.
+
+Категории субъектов, персональные данные которых обрабатываются: субъекты персональных данных — Пользователи Сайта.
+
+Способы обработки: сбор, запись, систематизация, накопление, хранение, уточнение (обновление, изменение), извлечение, использование, обезличивание, блокирование, удаление, уничтожение персональных данных.
+
+Срок обработки и хранения: до получения от субъекта персональных данных требования о прекращении обработки/отзыва согласия либо 10 (десять) лет.
+
+Порядок уничтожения персональных данных при достижении цели их обработки или при наступлении иных законных оснований: лицо, ответственное за обработку персональных данных, производит стирание данных методом перезаписи (замена всех единиц хранения информации на «0») с составлением акта об уничтожении персональных данных.
+
+
+            3.1.3. Цель: обработка обращений, жалоб, запросов, сообщений, направляемых Оператором и Пользователем друг другу.
+
+Категории и перечень обрабатываемых данных: фамилия, имя, телефон, электронная почта, текст сообщения (если текст сообщения содержит персональные данные).
+
+Категории субъектов, персональные данные которых обрабатываются: субъекты персональных данных — Пользователи Сайта.
+
+Способы обработки: сбор, запись, систематизация, накопление, хранение, уточнение (обновление, изменение), извлечение, использование, обезличивание, передача (доступ, предоставление) блокирование, удаление, уничтожение персональных данных.
+
+Срок обработки и хранения: до получения от субъекта персональных данных требования о прекращении обработки/отзыва согласия либо 10 (десять) лет.
+
+Порядок уничтожения персональных данных при достижении цели их обработки или при наступлении иных законных оснований: лицо, ответственное за обработку персональных данных, производит стирание данных методом перезаписи (замена всех единиц хранения информации на «0») с составлением акта об уничтожении персональных данных.
+
+
+            3.1.4. Цель: выдача Пользователю документов по окончании обучения.
+
+Категории и перечень обрабатываемых данных: фамилия, имя, отчество, телефон, электронная почта, данные документов об образовании, почтовый адрес, СНИЛС, данные документа о смене фамилии.
+
+Категории субъектов, персональные данные которых обрабатываются: субъекты персональных данных — Пользователи Сайта.
+
+Способы обработки: сбор, запись, систематизация, накопление, хранение, уточнение (обновление, изменение), извлечение, использование, обезличивание, передача (доступ, предоставление) блокирование, удаление, уничтожение персональных данных.
+
+Срок обработки и хранения: до получения от субъекта персональных данных требования о прекращении обработки / отзыва согласия.
+
+Порядок уничтожения персональных данных при достижении цели их обработки или при наступлении иных законных оснований: лицо, ответственное за обработку персональных данных, производит стирание данных методом перезаписи (замена всех единиц хранения информации на «0») с составлением акта об уничтожении персональных данных.
+
+            3.1.5. Цель: оставление Пользователем отзывов об услугах Оператора.
+
+Категории и перечень обрабатываемых данных: фамилия, имя, текст сообщения (если текст сообщения содержит персональные данные), данные аккаунтов социальных сетей Пользователя, данные об образе: фотографии, видеозаписи, иная техническая фиксация образов лица и тела.
+
+Категории субъектов, персональные данные которых обрабатываются: субъекты персональных данных — Пользователи Сайта.
+
+Способы обработки: сбор, запись, систематизация, накопление, хранение, уточнение (обновление, изменение), извлечение, использование, обезличивание, передача (доступ, предоставление) блокирование, удаление, уничтожение персональных данных.
+
+Срок обработки и хранения: до получения от субъекта персональных данных требования о прекращении обработки / отзыва согласия либо — 10 (десять) лет.
+
+Порядок уничтожения персональных данных при достижении цели их обработки или при наступлении иных законных оснований: лицо, ответственное за обработку персональных данных, производит стирание данных методом перезаписи (замена всех единиц хранения информации на «0») с составлением акта об уничтожении персональных данных.
+
+            3.1.6. Обработка персональных данных будет ограничиваться достижением этих конкретных, заранее определенных и законных целей. Не допускается обработка персональных данных, несовместимая с целью обработки.
+
+            3.1.7. О технологии куки (cookie): 
+
+                3.1.7.1.  Куки (cookie): — это фрагмент данных, отправленный сервером Оператора и хранимый на устройстве Субъекта персональных данных. Содержимое такого файла может как относиться, так и не относиться к персональным данным, в зависимости от того, содержит ли такой файл персональные данные или содержит обезличенные технические данные. 
+
+                3.1.7.2.  Субъект персональных данных вправе запретить своему оборудованию прием этих данных или ограничить прием этих данных. При отказе от получения таких данных или при ограничении приема данных некоторые функции Сайта могут работать некорректно. Субъект персональных данных обязуется сам настроить свое оборудование таким способом, чтобы оно обеспечивало адекватный его желаниям режим работы и уровень защиты данных куки (cookie), а Оператор не предоставляет технологических и правовых консультаций на темы подобного характера.
+
+
+
+        3.2.  Порядок и условия обработки персональных данных
+
+            3.2.1. Обработка персональных данных — любое действие (операция) или совокупность действий (операций), совершаемых с использованием средств автоматизации или без использования таких средств с персональными данными, включая сбор, запись, систематизацию, накопление, хранение, уточнение (обновление, изменение), извлечение, использование, передачу (предоставление, доступ), обезличивание, блокирование, удаление, уничтожение персональных данных. В настоящей Политике устанавливаются цели обработки персональных данных, категории и перечень обрабатываемых персональных данных, категории субъектов, персональные данные которых обрабатываются, способы и сроки обработки и хранения, порядок уничтожения персональных данных при достижении целей их обработки или при наступлении иных законных оснований для каждой цели обработки.
+            3.2.2. Оператор может обрабатывать данные указанными способами (операциями) как в информационных системах персональных данных, так и без использования средств автоматизации. 
+            3.2.3. Оператор будет обрабатывать персональные данные столько времени, сколько это необходимо для достижения конкретной цели обработки.
+            3.2.4. В случае отзыва субъектом персональных данных согласия на обработку персональных данных или истечения срока действия согласия, направления субъектом персональных данных требования о прекращении обработки персональных данных Оператор вправе заблокировать данные и обрабатывать их в архивном виде в течение 3 (трёх) лет.
+
+        3.3.  Меры по защите персональных данных
+
+            3.3.1. Оператор принимает все необходимые меры для защиты персональных данных от несанкционированного, случайного или незаконного уничтожения, потери, изменения, недобросовестного использования, раскрытия или доступа, а также иных незаконных форм обработки.
+            3.3.2. По умолчанию персональная информация обрабатывается автоматическим оборудованием без доступа к ней кого-либо. В случае если такой доступ понадобится, то Оператор предоставляет доступ к персональным данным только тем лицам, которым эта информация необходима для обеспечения Цели обработки. Для защиты и обеспечения конфиденциальности данных такие лица должны обязаться соблюдать внутренние правовые правила и процедуры, технические и организационные меры безопасности в отношении обработки персональной информации.
+            3.3.3. Как при обработке персональных данных без использования средств автоматизации, так и при автоматизированной обработке обеспечивается достаточная безопасность места, где происходит обработка персональных данных.
+            3.3.4. Раскрытие персональных данных может быть произведено лишь в соответствии с действующим законодательством Российской Федерации по требованию суда, правоохранительных органов и в иных предусмотренных законодательством Российской Федерации случаях. 
+            3.3.5. Оператор не проверяет достоверность информации, предоставляемой Субъектом персональных данных, и исходит из того, что Субъект персональных данных в порядке принципа добросовестности и требований ст. 19 Гражданского кодекса РФ предоставляет достоверную и достаточную информацию, заботится о своевременности внесения изменений в ранее предоставленную информацию, актуализирует информацию.
+
+        3.4.  Передача персональных данных третьим лицам и распространение персональных данных
+
+            3.4.1. Оператор вправе осуществить передачу (способом доступа и предоставления) персональных данных следующим третьим лицам:
+
+а) в отношении которых произведена уступка (перевод) прав или обязанностей, либо новация по соответствующему соглашению (например, при правопреемстве, при продаже или ином отчуждении бизнеса в целом или части бизнеса);
+
+б) любому регулирующему органу, правоохранительным органам, центральным или местным органам власти, другим официальным или государственным органам или судам, которым Оператор обязан по запросу предоставлять информацию в соответствии с применимым законодательством; 
+
+в) лицам, осуществляющим обеспечение правовой защиты Оператора или третьих лиц при нарушении их прав либо угрозе нарушения их прав, включая нарушение законов или регулирующих документов;
+
+г) в случае если Субъект персональных данных сам выразил согласие на передачу персональных данных третьему лицу, либо передача персональных данных требуется для исполнения соглашения или договора, заключенного с Субъектом персональных данных. Сюда относятся в том числе случаи, когда Пользователь разрешил своему оборудованию прием, передачу и хранение файлов технологии куки (cookie), если такой файл содержит персональные данные. 
+
+            3.4.2. Оператор вправе осуществить передачу (способом распространения неограниченному кругу лиц) персональных данных в следующих случаях:
+
+а) Пользователь сам разрешил свободное распространение категорий персональных данных неограниченному кругу лиц.
+
+
+        3.5.  Права и обязанности в отношении персональных данных
+
+
+            3.5.1. Субъект персональных данных обязан заботиться о достоверности предоставленной информации, о своевременности внесения изменений в предоставленную информацию, ее актуализации, в противном случае Оператор не несет ответственности за неисполнение обязательств, любые убытки, вред или потери.
+
+            3.5.2. Для реализации права на дополнение, исправление, блокировку и удаление персональных данных, Субъект персональных данных вправе направить письменное обращение на адрес электронной почты Оператора, указанный в настоящей Политике.
+
+            3.5.3. Основные права субъекта персональных данных:
+
+    • запрашивать информацию об осуществляемой обработке персональных данных;
+    • отзывать согласие на обработку персональных данных;
+    • требовать ограничений на обработку персональных данных;
+    • требовать прекратить обработку персональных данных, если это предусмотрено применимым законодательством и настоящей Политикой.
+
+В случаях, предусмотренных применимым законодательством, Субъект персональных данных обладает другими правами, не указанными выше.
+
+            3.5.4. Субъект персональных данных обязуется воспользоваться реквизитами из настоящей Политики для направления запросов о реализации прав субъекта персональных данных или жалоб относительно некорректности информации или незаконности ее обработки. Такие запросы и жалобы рассматриваются в срок, не превышающий 10 (десяти) рабочих дней с даты поступления Оператору. 
+            3.5.5. Субъект персональных данных вправе в любое время отозвать согласие на обработку персональных данных. Для отзыва согласия на обработку персональных данных Субъект персональных данных направляет Оператору Уведомление в письменной форме об отзыве согласия по адресу электронной почты, указанному в разделе реквизитов настоящей Политики.
+
+        3.6.  Правила хранения и обработки персональных данных граждан РФ, правила о трансграничной передаче персональных данных
+
+            3.6.1. Оператор осуществляет обработку персональных данных граждан Российской Федерации с использованием баз данных, находящихся на территории Российской Федерации.
+
+            3.6.2. Оператор до начала осуществления трансграничной передачи персональных данных обязан убедиться в том, что иностранным государством, на территорию которого предполагается осуществлять передачу персональных данных, обеспечивается надежная защита прав субъектов персональных данных и уведомить государственный орган, уполномоченный в сфере персональных данных, о намерении осуществлять трансграничную передачу персональных данных на территории иностранных государств, отвечающих указанным требованиям.
+
+            3.6.3. Оператор до начала осуществления трансграничной передачи персональных данных на территорию иностранного государства, в котором не обеспечивается надежная защита прав субъектов персональных данных, обязан получить разрешение государственного органа, уполномоченного в сфере персональных данных, осуществлять трансграничную передачу персональных данных на территории таких иностранных государств.
+
+
+    4. Изменение Политики конфиденциальности. Применимое законодательство. Толкование.
+
+        4.1. Оператор имеет право вносить изменения в настоящую Политику. При внесении изменений в актуальной редакции указывается дата последнего обновления. Новая редакция Политики вступает в силу с момента ее размещения, если иное не предусмотрено новой редакцией Политики. Утратившие силу редакции доступны в архиве по указанному в Политике адресу. 
+
+        4.2. Оператор информирует субъектов персональных данных, ранее выразивших свое согласие с Политикой, об изменении Политики, руководствуясь при выборе формы информирования тем, что согласие субъекта на обработку персональных данных должно быть конкретным, предметным, информированным, сознательным и однозначным.
+
+        4.3. Местом выражения согласия и местом исполнения Политики всегда является место нахождения Оператора, а правом, применимым к отношениям Оператора и Субъекта персональных данных, всегда является право России, вне зависимости от того, где находится Субъект персональных данных или оборудование, используемое им. Все споры и разногласия разрешаются по месту нахождения Оператора, если законом не предусмотрено иное.
+
+        4.4. Политика начинает регулировать отношения Субъекта персональных данных и Оператора с момента выражения Субъектом персональных данных согласия с ее условиями и действует бессрочно. Бессрочность действия Политики как документа никаким образом не означает бессрочность/отсутствие ограничений срока обработки персональных данных. Одностороннее прекращение действия Политики по воле одной из сторон не допускается.
+
+        4.5. Правила толкования:
+
+            4.5.1. Термины «соглашение» и «договор» равнозначны.
+            4.5.2. Считается, что за словами «включают», «включает», «включая», «например», «к примеру», «в том числе», «такие как» всегда следует словосочетание «но не ограничиваясь», которое не ограничивает общего характера того, что предшествует этим словам. 
+            4.5.3. Считается, что слова «или»/«либо» понимаются по умолчанию как перечисление, то есть аналогично «и», если из смысла текста прямо не следует, что слово «или»/»либо» обозначает именно выбор одного из вариантов.
+            4.5.4. Считается, что значение Слова, использованного с Заглавной буквы, ничем не отличается от значения этого же слова, использованного со строчной буквы. 
+
+    5. Реквизиты Оператора
+
+Индивидуальный предприниматель «ДМИТРИЕВА АЛЕКСАНДРА СЕРГЕЕВНА»
+ИНН 504905297550, ОГРНИП 326508100202982
+Электронная почта kemama@yandex.ru
+
+
+        5.1. Информация для реализации прав субъекта персональных данных: Субъект персональных данных может реализовать все права, присущие субъекту персональных данных, а также получить разъяснения по вопросам, касающимся обработки персональных данных, обратившись к Оператору по адресу электронной почты Оператора.
+
+
+    6. Сведения о документе
+
+        6.1. Дата публикации настоящей редакции документа: _______________
+
+</pre>
+            </div>
+        </div>
+    </div>
+
+    <footer class="py-16 bg-white border-t border-brandBorder">
+        <div class="container mx-auto px-6">
+            <div class="flex flex-col md:flex-row justify-between items-center gap-8 mb-12">
+                <div class="text-center md:text-left">
+                    <div class="footer-brand-title font-display font-bold text-brandTitle italic uppercase leading-none">Вожатая граблей</div>
+                    <p class="text-brandText text-sm mt-2">Саша Дмитриева © 2026</p>
+                </div>
+
+                <div class="flex flex-col items-center gap-5">
+    
+    <div class="font-display font-black text-brandPrimary uppercase tracking-[0.3em] text-xl">
+        МОИ КАНАЛЫ
+    </div>
+
+    <div class="flex gap-10 flex-wrap justify-center items-center">
+
+        <a href="https://t.me/vozhatayagrabley"
+           target="_blank"
+           rel="noopener noreferrer"
+           class="text-brandTitle font-black hover:text-brandPrimary transition-colors uppercase text-2xl tracking-widest">
+            TELEGRAM
+        </a>
+
+        <a href="https://max.ru/id504905297550_biz"
+           target="_blank"
+           rel="noopener noreferrer"
+           class="text-brandPrimary font-black hover:text-brandPrimary transition-colors uppercase text-2xl tracking-widest">
+            MAX
+        </a>
+
+    </div>
+
+</div>
+
+            <div class="pt-8 border-t border-brandBorder grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 text-[11px] text-brandText uppercase tracking-wider">
+                <div><span class="font-bold block text-brandTitle mb-1">Полное наименование:</span> ИП ДМИТРИЕВА АЛЕКСАНДРА СЕРГЕЕВНА</div>
+                <div><span class="font-bold block text-brandTitle mb-1">ИНН:</span> 504905297550</div>
+                <div><span class="font-bold block text-brandTitle mb-1">ОГРНИП:</span> 326508100202982</div>
+                <div><span class="font-bold block text-brandTitle mb-1">Вид деятельности:</span> 70.21.1</div>
+            </div>
+
+            <div class="mt-12 text-center text-[10px] uppercase tracking-[0.6em] text-brandText opacity-50">
+                Ты можешь быть собой — и это не разрушит твою жизнь.
+            </div>
+        </div>
+    </footer>
+
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+
+    <script>
+        AOS.init({
+            duration: 1200,
+            once: true,
+            offset: 100
+        });
+
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                const target = this.getAttribute('href');
+
+                if (!target || target === '#') return;
+
+                const element = document.querySelector(target);
+
+                if (!element) return;
+
+                e.preventDefault();
+
+                element.scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+
+
+        const openPolicyModal = document.getElementById('openPolicyModal');
+        const closePolicyModal = document.getElementById('closePolicyModal');
+        const policyModal = document.getElementById('policyModal');
+
+        const showPolicyModal = () => {
+            if (!policyModal) return;
+
+            policyModal.classList.add('is-open');
+            policyModal.setAttribute('aria-hidden', 'false');
+            document.body.style.overflow = 'hidden';
+        };
+
+        const hidePolicyModal = () => {
+            if (!policyModal) return;
+
+            policyModal.classList.remove('is-open');
+            policyModal.setAttribute('aria-hidden', 'true');
+            document.body.style.overflow = '';
+        };
+
+        if (openPolicyModal) {
+            openPolicyModal.addEventListener('click', showPolicyModal);
+        }
+
+        if (closePolicyModal) {
+            closePolicyModal.addEventListener('click', hidePolicyModal);
+        }
+
+        if (policyModal) {
+            policyModal.addEventListener('click', (event) => {
+                if (event.target === policyModal) {
+                    hidePolicyModal();
+                }
+            });
+        }
+
+        document.addEventListener('keydown', (event) => {
+            if (event.key === 'Escape') {
+                hidePolicyModal();
+            }
+        });
+
+        const form = document.getElementById('leadForm');
+        const formMessage = document.getElementById('formMessage');
+
+        const TELEGRAM_BOT_TOKEN = '8507527493:AAEhVEDCv7nxJfKfkk7V464X-qlNYwCdQ8A';
+        const TELEGRAM_CHAT_ID = '6003439246';
+
+        form.addEventListener('submit', async (e) => {
+            e.preventDefault();
+
+            const submitButton = form.querySelector('button[type="submit"]');
+            const formData = new FormData(form);
+
+            const name = formData.get('name');
+            const contact = formData.get('contact');
+
+            submitButton.disabled = true;
+            submitButton.style.opacity = '0.7';
+
+            formMessage.classList.add('hidden');
+
+            const text = `
+🚀 Новая заявка
+
+👤 Имя: ${name}
+📱 Контакт: ${contact}
+            `;
+
+            try {
+                if (!TELEGRAM_BOT_TOKEN || TELEGRAM_BOT_TOKEN === 'PASTE_NEW_BOT_TOKEN_HERE') {
+                    throw new Error('Telegram bot token is not configured');
+                }
+
+                const response = await fetch(
+                    `https://api.telegram.org/bot${TELEGRAM_BOT_TOKEN}/sendMessage`,
+                    {
+                        method: 'POST',
+                        headers: {
+                            'Content-Type': 'application/json'
+                        },
+                        body: JSON.stringify({
+                            chat_id: TELEGRAM_CHAT_ID,
+                            text: text
+                        })
+                    }
+                );
+
+                const data = await response.json();
+
+                if (!response.ok || !data.ok) {
+                    throw new Error(data.description || 'Telegram API Error');
+                }
+
+                form.reset();
+
+                formMessage.textContent = 'Заявка успешно отправлена!';
+                formMessage.style.color = '#364321';
+                formMessage.classList.remove('hidden');
+
+            } catch (error) {
+                console.error(error);
+
+                formMessage.innerHTML = 'Ошибка отправки. Напиши в <a href="https://t.me/vozhatayagrabley" target="_blank" rel="noopener noreferrer" style="color:#C7200A;font-weight:700;text-decoration:underline;">Telegram</a> или <a href="https://max.ru/id504905297550_biz" target="_blank" rel="noopener noreferrer" style="color:#C7200A;font-weight:700;text-decoration:underline;">MAX</a>.';
+                formMessage.style.color = '#C7200A';
+                formMessage.classList.remove('hidden');
+
+            } finally {
+                submitButton.disabled = false;
+                submitButton.style.opacity = '1';
+            }
+        });
+    </script>
+</body>
+</html>
